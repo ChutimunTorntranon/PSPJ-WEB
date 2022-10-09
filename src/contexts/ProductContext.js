@@ -5,7 +5,6 @@ const ProductContext = createContext();
 
 function ProductContextProvider({ children }) {
 	const [products, setProducts] = useState([]);
-	console.log(products);
 
 	useEffect(() => {
 		const fetchProduct = async () => {
@@ -19,12 +18,26 @@ function ProductContextProvider({ children }) {
 		return await productService.createProduct(input);
 	};
 
-	const deleteProduct = async (input, id) => {
-		return await productService.deleteProduct(input, id);
+	const editProduct = async (input, id) => {
+		return await productService.editProduct(input, id);
+	};
+	const deleteProduct = async (id) => {
+		return await productService.deleteProduct(id);
+	};
+	const getProductById = async (input, id) => {
+		return await productService.getProductById(input, id);
 	};
 
 	return (
-		<ProductContext.Provider value={{ products, createProduct, deleteProduct }}>
+		<ProductContext.Provider
+			value={{
+				products,
+				createProduct,
+				deleteProduct,
+				editProduct,
+				getProductById,
+			}}
+		>
 			{children}
 		</ProductContext.Provider>
 	);

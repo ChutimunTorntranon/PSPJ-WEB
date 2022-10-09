@@ -19,6 +19,9 @@ function header(props) {
 					<Link to='/product/create'>Create Product</Link>
 				</button>
 				<button>
+					<Link to='/product/edit/:id'>Edit or Delete Product</Link>
+				</button>
+				<button>
 					<Link to='/cart'>Cart</Link>
 				</button>
 

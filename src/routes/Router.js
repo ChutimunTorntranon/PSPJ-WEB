@@ -6,18 +6,16 @@ import ProductPage from '../pages/ProductPage';
 
 import LoginPage from '../pages/LoginPage';
 import PostPage from '../pages/PostPage';
-import data from '../data test/data';
 import CreateProductsPage from '../pages/CreateProductsPage';
+import EditDeletePage from '../pages/EditDeletePage';
 function Router() {
 	const { user } = useAuth();
-
-	const { products } = data;
-
 	return (
 		<>
-			<Header products={products} />
+			<Header />
 			<Routes>
 				<Route path='/product' element={<ProductPage />} />
+				<Route path='/product/edit/:id' element={<EditDeletePage />} />
 				<Route path='/product/create' element={<CreateProductsPage />} />
 				<Route path='/cart' element={<CartPage />} />
 				{user ? (

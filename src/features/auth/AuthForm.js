@@ -22,21 +22,6 @@ function AuthForm() {
 								Create Account
 							</button>
 						</div>
-						{/* {isOpen ? (
-							<Modal
-								title='Test'
-								open={isOpen}
-								onClose={() => {
-									setIsOpen(false);
-									console.log('hey');
-
-								}}
-							>
-								<RegisterForm onSuccess={() => setIsOpen(false)} />
-							</Modal>
-						) : (
-							<></>
-						)} */}
 						<Modal
 							title='Test'
 							open={isOpen}

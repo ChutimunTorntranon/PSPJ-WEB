@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { useProduct } from '../contexts/ProductContext';
 
 function CreateProductsPage() {
 	const { createProduct } = useProduct();
+
 	const Navigate = useNavigate();
 
 	const handleClickSubmit = async (e) => {
@@ -80,10 +80,7 @@ function CreateProductsPage() {
 						/>
 					</div>
 					<div>
-						<label
-							for='phone'
-							class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-						>
+						<label class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
 							Type Product
 						</label>
 						<input
