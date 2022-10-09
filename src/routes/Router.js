@@ -15,7 +15,7 @@ function Router() {
 			<Header />
 			<Routes>
 				<Route path='/product' element={<ProductPage />} />
-				<Route path='/product/edit/:id' element={<EditDeletePage />} />
+				<Route path='/product/:id/edit' element={<EditDeletePage />} />
 				<Route path='/product/create' element={<CreateProductsPage />} />
 				<Route path='/cart' element={<CartPage />} />
 				{user ? (

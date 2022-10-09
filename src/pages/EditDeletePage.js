@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useProduct } from '../contexts/ProductContext';
 function EditDeletePage() {
 	const { deleteProduct, getProductById, editProduct } = useProduct();
-
+	const Navigate = useNavigate();
 	const { id } = useParams();
 
 	const [input, setInput] = useState({
@@ -11,8 +11,15 @@ function EditDeletePage() {
 		priceProduct: '',
 		amountProduct: '',
 		typeOfProduct: '',
-		ImageProduct: '',
 	});
+	const [file, setFile] = useState(null);
+
+	const formData = new FormData();
+	formData.append('product', input.product);
+	formData.append('priceProduct', input.priceProduct);
+	formData.append('amountProduct', input.amountProduct);
+	formData.append('typeOfProduct', input.typeOfProduct);
+	formData.append('ImageProduct', file);
 
 	useEffect(() => {
 		const fetchProduct = async () => {
@@ -42,7 +49,9 @@ function EditDeletePage() {
 	const handleClickEditForm = async (e) => {
 		e.preventDefault();
 		try {
-			await editProduct(input, id);
+			await editProduct(formData, id);
+			Navigate('/product');
+			window.location.reload();
 		} catch (err) {
 			console.log(err);
 		}
@@ -51,6 +60,7 @@ function EditDeletePage() {
 		e.preventDefault();
 		try {
 			await deleteProduct(id);
+			Navigate('/product');
 		} catch (err) {
 			console.log(err);
 		}
@@ -124,16 +134,16 @@ function EditDeletePage() {
 
 					<div>
 						<label
-							for='visitors'
 							class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+							for='file_input'
 						>
-							Upload Image Product (URL)
+							Upload Image file
 						</label>
 						<input
-							name='ImageProduct'
-							class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-							value={input.ImageProduct}
-							onChange={handleChangeInput}
+							class='block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400'
+							id='file_input'
+							type='file'
+							onChange={(e) => setFile(e.target.files[0])}
 						/>
 					</div>
 				</div>

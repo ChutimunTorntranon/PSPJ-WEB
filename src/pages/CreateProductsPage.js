@@ -10,7 +10,7 @@ function CreateProductsPage() {
 	const handleClickSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await createProduct(input);
+			await createProduct(formData);
 			Navigate('/product');
 		} catch (err) {
 			console.log(err);
@@ -22,8 +22,16 @@ function CreateProductsPage() {
 		priceProduct: '',
 		amountProduct: '',
 		typeOfProduct: '',
-		ImageProduct: '',
 	});
+
+	const [file, setFile] = useState(null);
+
+	const formData = new FormData();
+	formData.append('product', input.product);
+	formData.append('priceProduct', input.priceProduct);
+	formData.append('amountProduct', input.amountProduct);
+	formData.append('typeOfProduct', input.typeOfProduct);
+	formData.append('ImageProduct', file);
 
 	const handleChangeInput = (e) => {
 		console.log(input);
@@ -94,16 +102,16 @@ function CreateProductsPage() {
 
 					<div>
 						<label
-							for='visitors'
 							class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+							for='file_input'
 						>
-							Upload Image Product (URL)
+							Upload Image file
 						</label>
 						<input
-							name='ImageProduct'
-							class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-							value={input.ImageProduct}
-							onChange={handleChangeInput}
+							class='block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400'
+							id='file_input'
+							type='file'
+							onChange={(e) => setFile(e.target.files[0])}
 						/>
 					</div>
 				</div>
