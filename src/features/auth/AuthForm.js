@@ -5,6 +5,7 @@ import RegisterForm from './RegisterForm';
 
 function AuthForm() {
 	const [isOpen, setIsOpen] = useState(false);
+	console.log(isOpen);
 	return (
 		<div className=''>
 			<div className='p-3 bg-warning border border-dark border-start border-opacity-10 rounded-end shadow col-md-9 mx-auto'>
@@ -21,8 +22,31 @@ function AuthForm() {
 								Create Account
 							</button>
 						</div>
-						<Modal title='Test' open={isOpen} onClose={() => setIsOpen(false)}>
+						{/* {isOpen ? (
+							<Modal
+								title='Test'
+								open={isOpen}
+								onClose={() => {
+									setIsOpen(false);
+									console.log('hey');
+
+								}}
+							>
+								<RegisterForm onSuccess={() => setIsOpen(false)} />
+							</Modal>
+						) : (
+							<></>
+						)} */}
+						<Modal
+							title='Test'
+							open={isOpen}
+							onClose={() => {
+								setIsOpen(false);
+								// console.log('hey');
+							}}
+						>
 							<RegisterForm onSuccess={() => setIsOpen(false)} />
+							{/* <h1>CodeCamp12</h1> */}
 						</Modal>
 					</div>
 				</div>

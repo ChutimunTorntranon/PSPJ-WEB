@@ -24,14 +24,15 @@ function RegisterForm({ onSuccess }) {
 	const handleSubmitForm = async (e) => {
 		e.preventDefault();
 		const { error } = validateRegister(input);
+
+		onSuccess();
 		if (error) {
 			return toast.error(error.message);
 		}
 		try {
 			startLoading();
-			await register(input);
+			// await register(input);
 			toast.success('success register');
-			onSuccess();
 		} catch (err) {
 			toast.error(err.response.data.message);
 		} finally {

@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as authService from '../api/authApi';
 import * as userService from '../api/userApi';
 import {
@@ -11,7 +12,7 @@ const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
 	const [user, setUser] = useState(null);
-
+	const Navigate = useNavigate();
 	const [initialLoading, setInitialLoading] = useState(true);
 
 	useEffect(() => {
@@ -37,20 +38,24 @@ function AuthContextProvider({ children }) {
 
 	const register = async (input) => {
 		const res = await authService.register(input);
-		setTimeout(() => setUser(true), 100);
-		addAccessToken(res.data.token);
+		Navigate('/login');
+		// setTimeout(() => setUser(true), 100);
+		// addAccessToken(res.data.token);
 		// setTimeout(() => getMe(), 1);
 	};
 
 	const login = async (input) => {
 		const res = await authService.login(input);
+		setUser(true);
 		addAccessToken(res.data.token);
 		await getMe();
+		Navigate('/home');
 	};
 
 	const logout = () => {
 		setUser(null);
 		removeAccessToken();
+		Navigate('/login');
 	};
 
 	const updateUser = async (input) => {

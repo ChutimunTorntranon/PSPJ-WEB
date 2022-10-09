@@ -10,6 +10,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from './contexts/AuthContext';
 import LoadingContextProvider from './contexts/LoadingContext';
+import ProductContextProvider from './contexts/ProductContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,9 @@ root.render(
 		<BrowserRouter>
 			<AuthContextProvider>
 				<LoadingContextProvider>
-					<App />
+					<ProductContextProvider>
+						<App />
+					</ProductContextProvider>
 				</LoadingContextProvider>
 			</AuthContextProvider>
 		</BrowserRouter>

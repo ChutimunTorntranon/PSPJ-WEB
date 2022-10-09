@@ -2,16 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { Modal as BsModal } from 'bootstrap';
 
 function Modal({ children, onClose, open, title }) {
-	const modalEl = useRef();
-
+	const modalEl = useRef(); // { current: <div className="modal fade" tabIndex="-1"></div> }
 	const [modal, setModal] = useState(null);
 
 	useEffect(() => {
 		const modalObj = new BsModal(modalEl.current);
 		setModal(modalObj);
-	}, [open]);
+	}, []);
 
 	useEffect(() => {
+		console.log('use effect1');
 		if (open) {
 			return modal?.show();
 		}
