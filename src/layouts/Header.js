@@ -8,6 +8,9 @@ function header() {
 				<img src='Logo.png' className='w-[300px]' alt='logo'></img>
 			</div>
 			<div className='p-3 flex items-center gap-2'>
+				<Link to='/home'>Home</Link>
+			</div>
+			<div className='p-3 flex items-center gap-2'>
 				<Link to='/product'>Product</Link>
 			</div>
 
@@ -15,9 +18,7 @@ function header() {
 				<button>
 					<Link to='/product/create'>Create Product</Link>
 				</button>
-				<button>
-					<Link to='/product/:id/edit'>Edit or Delete Product</Link>
-				</button>
+
 				<button>
 					<Link to='/cart'>Cart</Link>
 				</button>

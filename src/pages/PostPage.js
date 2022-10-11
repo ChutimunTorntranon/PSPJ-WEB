@@ -5,10 +5,23 @@ function PostPage() {
 	return (
 		<div className='mt-[20px] container w-[900px] h-[400px]'>
 			<Carousel slideInterval={5000}>
-				<img src='cat01.jpg' alt='...' />
+				<img
+					src='https://res.cloudinary.com/dfpexpkex/image/upload/v1665390082/gold-bengal-cat-white-space_rn7xvi.jpg'
+					alt='...'
+				/>
 
-				<img src='cat02.jpg' alt='...' />
-				<img src='cat03.jpg' alt='...' />
+				<img
+					src='https://res.cloudinary.com/dfpexpkex/image/upload/v1665390091/white-cat-lies-woman-s-knees_axhkxc.jpg'
+					alt='...'
+				/>
+				<img
+					src='https://res.cloudinary.com/dfpexpkex/image/upload/v1665390087/still-life-pet-food-assortment_wqfkgc.jpg'
+					alt='...'
+				/>
+				<img
+					src='https://res.cloudinary.com/dfpexpkex/image/upload/v1665390135/297069183_502004485075502_9039437661798401210_n_ok0j8q.png'
+					alt='...'
+				/>
 			</Carousel>
 			<div className='mt-[10px]'>
 				<h4 className='font-bold text-center'>Featured Product</h4>
@@ -54,7 +67,7 @@ function PostPage() {
 					</div>
 					<div className='rounded-lg mt-[10px] border border-red-500 w-[200px]'>
 						{/* <Carousel slideInterval={5000}> */}
-						<img src='blueberry_pet_essentials_zoo_fun_dog_collars_1_470x470_crop_center.webp'></img>
+						<img src='https://res.cloudinary.com/dfpexpkex/image/upload/v1665390474/166539047335131086264.jpg'></img>
 						<a className=''>Blueberry Pet Essentials Zoo Fun Dog Collars</a>
 						<br></br>
 						<div className='mt-[20px]'>

@@ -51,7 +51,6 @@ function EditDeletePage() {
 		try {
 			await editProduct(formData, id);
 			Navigate('/product');
-			window.location.reload();
 		} catch (err) {
 			console.log(err);
 		}

@@ -27,11 +27,9 @@ function AuthForm() {
 							open={isOpen}
 							onClose={() => {
 								setIsOpen(false);
-								// console.log('hey');
 							}}
 						>
 							<RegisterForm onSuccess={() => setIsOpen(false)} />
-							{/* <h1>CodeCamp12</h1> */}
 						</Modal>
 					</div>
 				</div>

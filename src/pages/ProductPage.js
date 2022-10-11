@@ -14,12 +14,14 @@ function ProductPage() {
 						<div className='p-[10px]'>
 							<a className=''>{item.product}</a>
 							<br></br>
+							<span>price :</span>
 							<span className='text-yellow-300 ml-2'>{item.priceProduct}</span>
 							<br></br>
-							<span className='text-red-500 ml-2'>
-								amount : {item.amountProduct}
-							</span>
+							<span>amount :</span>
+							<span className='text-red-500 ml-2'>{item.amountProduct}</span>
+							<span> items</span>
 							<br></br>
+							<span>type :</span>
 							<span className='text-gray-200 ml-2'>{item.typeOfProduct}</span>
 						</div>
 						<button className='block bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-2 px-4 rounded mt-[5px] mx-auto mb-[5px]'>

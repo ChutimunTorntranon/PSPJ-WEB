@@ -1,6 +1,6 @@
 import * as productService from '../api/productApi';
 import { createContext, useContext, useEffect, useState } from 'react';
-
+import axios from '../config/axios';
 const ProductContext = createContext();
 
 function ProductContextProvider({ children }) {
@@ -8,7 +8,8 @@ function ProductContextProvider({ children }) {
 
 	useEffect(() => {
 		const fetchProduct = async () => {
-			const res = await productService.getAllProduct();
+			const res = await axios.get('/product');
+			// console.log(res.data.post);
 			setProducts(res.data.post);
 		};
 		fetchProduct();

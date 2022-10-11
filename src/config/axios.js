@@ -18,10 +18,10 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
 	(response) => response,
 	(err) => {
-		if (err.response.status === 401) {
-			removeAccessToken();
-			return window.location.replace('/');
-		}
+		// if (err.response.status === 401) {
+		// 	removeAccessToken();
+		// 	return window.location.replace('/');
+		// }
 		return Promise.reject(err);
 	}
 );
