@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProduct } from '../contexts/ProductContext';
-
+import { toast } from 'react-toastify';
 function CreateProductsPage() {
 	const { createProduct } = useProduct();
 
@@ -11,7 +11,11 @@ function CreateProductsPage() {
 		e.preventDefault();
 		try {
 			await createProduct(formData);
-			Navigate('/product');
+			toast.success('😻 Create product Success');
+			setTimeout(() => {
+				Navigate('/product');
+				window.location.reload();
+			}, 1000);
 		} catch (err) {
 			console.log(err);
 		}

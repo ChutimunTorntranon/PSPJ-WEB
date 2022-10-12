@@ -20,15 +20,15 @@ function LoginForm() {
 		e.preventDefault();
 		const { error } = validatelogin(input);
 		if (error) {
-			return toast.error(error.message);
+			return toast.error('🔥 user or password invalid');
 		}
 		try {
 			startLoading();
 			await login(input);
-			toast.success('success register');
+			toast.success('🦄 success Login');
 			// onSuccess();
 		} catch (err) {
-			toast.error(err.response.data.message);
+			toast.error('user or password invalid');
 		} finally {
 			stopLoading();
 		}
@@ -50,7 +50,7 @@ function LoginForm() {
 				<div className='mb-3 col-md-6 justify-center'>
 					<label>Password</label>
 					<input
-						type='text'
+						type='password'
 						className='form-control'
 						name='password'
 						value={input.password}
